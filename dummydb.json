@@ -1,0 +1,100 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Pankaj",
+      "role": "AVO"
+    },
+    {
+      "name": "David",
+      "role": "BVO",
+      "id": 2
+    }
+  ],
+  "customers": [
+    {
+      "personalDetails": {
+        "userName": "sudhakar",
+        "fullName": "sudhakar singajogi",
+        "dob": "10-07-1985",
+        "maritalStatus": "Single",
+        "gender": "Male"
+      },
+      "communicationDetails": {
+        "mobileNumber": "8498081693",
+        "alternateNumber": "",
+        "permanentAddress": "3-16-112/25, Ram Reddy Nagar, Ramanthapur, Hyderabad",
+        "currentAddress": "3-16-112/25, Ram Reddy Nagar, Ramanthapur, Hyderabad"
+      },
+      "financialDetails": {
+        "panNumber": "DFNPS7231J",
+        "isSalaried": "Yes",
+        "monthlySalary": "142000"
+      },
+      "id": 1
+    },
+    {
+      "personalDetails": {
+        "userName": "jasmine",
+        "fullName": "jasmine flower",
+        "dob": "10-07-1985",
+        "maritalStatus": "Married",
+        "gender": "Male"
+      },
+      "communicationDetails": {
+        "mobileNumber": "345465",
+        "alternateNumber": "",
+        "permanentAddress": "",
+        "currentAddress": ""
+      },
+      "financialDetails": {
+        "panNumber": "DFNPS7231K",
+        "isSalaried": "No",
+        "monthlySalary": "45000"
+      },
+      "id": 2
+    },
+    {
+      "personalDetails": {
+        "userName": "username",
+        "fullName": "sudhakar singajogi",
+        "dob": "",
+        "maritalStatus": "",
+        "gender": ""
+      },
+      "communicationDetails": {
+        "mobileNumber": "",
+        "alternateNumber": "",
+        "permanentAddress": "",
+        "currentAddress": ""
+      },
+      "financialDetails": {
+        "panNumber": "",
+        "isSalaried": "",
+        "monthlySalary": ""
+      },
+      "id": 3
+    },
+    {
+      "personalDetails": {
+        "userName": "",
+        "fullName": "",
+        "dob": "",
+        "maritalStatus": "",
+        "gender": ""
+      },
+      "communicationDetails": {
+        "mobileNumber": "",
+        "alternateNumber": "",
+        "permanentAddress": "",
+        "currentAddress": ""
+      },
+      "financialDetails": {
+        "panNumber": "",
+        "isSalaried": "",
+        "monthlySalary": ""
+      },
+      "id": 4
+    }
+  ]
+}
