@@ -1,0 +1,56 @@
+<form #appCommunicationData="ngForm">
+<div class="row form-group">
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Enter Mobile Number" name="mobileNumber" ngModel>
+    </div>
+
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Enter Secondary contact Number" name="alternateNumber" ngModel>
+    </div>
+    </div>
+    
+    <div class="row form-group">
+
+        <div class="col-md-12">
+            <fieldset class="form-control fieldset100  fieldset-inside">
+                <legend class="f8">Permanent Address</legend>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <textarea class="form-control" #permanentAddress name="permanentAddress" ngModel></textarea>
+                    </div>
+                </div>
+                <!-- <label class="mr-2">Is Permanent Address same as current address</label> -->
+
+                <!-- <input type="radio" name="ispermanent" value="Yes" (change) = "setPermanentToCurrentAddress($event, permanentAddress.value)"> Yes
+                <input type="radio" name="ispermanent" value="No" (change) = "setPermanentToCurrentAddress($event, permanentAddress.value)"> No -->
+              </fieldset>
+              
+        </div>
+    </div>
+
+    <div class="row form-group">
+
+        <div class="col-md-12">
+            <fieldset class="form-control  fieldset-inside">
+                <legend class="f8">Current Address</legend>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <!-- <textarea class="form-control" name="currentAddress">{{currentAddress}}</textarea> -->
+                        <textarea class="form-control" name="currentAddress" ngModel></textarea>
+                    </div>
+                </div>
+              </fieldset>
+              
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-right mt-5 mr-0">
+            <button class="btn btn-primary" (click)="sendCommunicationData(appCommunicationData)">Continue</button>
+        </div>
+        
+    </div>
+            
+            
+    </form>

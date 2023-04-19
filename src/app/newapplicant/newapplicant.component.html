@@ -1,0 +1,54 @@
+<div class="div-relative">
+    <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" class="alert-abs" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p> 
+</div>
+
+<div class="content flex-container flex-container-nonbg" role="main">
+    
+    <div class="flex-item flex-item-bg flex-item-4" style="flex-grow: 4">
+        
+        <app-applicantlogin></app-applicantlogin>
+        
+    </div>
+    
+      <div class="flex-item  flex-item-8" style="flex-grow: 8">
+        
+        <p class="mb-2"> New Application Form </p>
+         <form>
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="0">
+                  <a ngbNavLink>Personal</a>
+                  <ng-template ngbNavContent>
+                    <fieldset class="form-control fieldset200">
+                        <legend class="f8">Personal details</legend>
+                        <app-personaldetailsform (selectTab)="selectTab('1')" (storeFormData) = "storeFormData($event)"></app-personaldetailsform>
+                      </fieldset>
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="1">
+                  <a ngbNavLink>Communication</a>
+                  <ng-template ngbNavContent>
+                    <fieldset class="form-control fieldset500">
+                        <legend class="f8">Communication details</legend>
+                        <app-communicationdetailsform [currentAddress] = "currentAddress" (selectTab)="selectTab('2')"  (setCurrentAdd) = "setCurrentAddress($event)" (storeFormData) = "storeFormData($event)" ></app-communicationdetailsform>
+                    </fieldset>
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="2">
+                  <a ngbNavLink>Financial</a>
+                  <ng-template ngbNavContent>
+                    <fieldset class="form-control fieldset500">
+                        <legend class="f8">Financial details</legend>
+                        <app-financialdetailsform (storeFormData) = "storeFormData($event)"></app-financialdetailsform>
+                      </fieldset>
+                  </ng-template>
+                </li>
+              </ul>
+            </form>
+          
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+          
+        </div>
+    
+</div>
