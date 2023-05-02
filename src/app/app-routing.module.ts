@@ -4,6 +4,8 @@ import { NewapplicantComponent } from './newapplicant/newapplicant.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { ApplicantDetailsComponent } from './applicant-details/applicant-details.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 const routes: Routes = [
   {
@@ -21,9 +23,13 @@ const routes: Routes = [
     path:"employee"
   },
   {
-    component:NewapplicantComponent,
+    component:ApplicantDetailsComponent,
     path:"applicant/:id"
   },
+  {
+    component:EmployeeDetailsComponent,
+    path:"employee/details/:id"
+  }
 ];
 
 @NgModule({

@@ -15,6 +15,11 @@ import { CommunicationdetailsformComponent } from './communicationdetailsform/co
 import { FinancialdetailsformComponent } from './financialdetailsform/financialdetailsform.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ApplicantDetailsComponent } from './applicant-details/applicant-details.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import {StoreModule} from "@ngrx/store";
+import { employeeReducer } from './reducers/employee.reducer';
+import { LoanApplicationFormComponent } from './loan-application-form/loan-application-form.component';
 
 
 @NgModule({
@@ -27,7 +32,10 @@ import {HttpClientModule} from "@angular/common/http";
     ApplicantloginComponent,
     PersonaldetailsformComponent,
     CommunicationdetailsformComponent,
-    FinancialdetailsformComponent
+    FinancialdetailsformComponent,
+    ApplicantDetailsComponent,
+    EmployeeDetailsComponent,
+    LoanApplicationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,12 @@ import {HttpClientModule} from "@angular/common/http";
     NgbNavModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(
+      {
+        empDetails:employeeReducer
+      }
+    )
 
   ],
   providers: [],
