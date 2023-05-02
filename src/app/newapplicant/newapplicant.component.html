@@ -20,7 +20,7 @@
                 <li [ngbNavItem]="0">
                   <a ngbNavLink>Personal</a>
                   <ng-template ngbNavContent>
-                    <fieldset class="form-control fieldset200">
+                    <fieldset class="form-control fieldset500">
                         <legend class="f8">Personal details</legend>
                         <app-personaldetailsform (selectTab)="selectTab('1')" (storeFormData) = "storeFormData($event)"></app-personaldetailsform>
                       </fieldset>
@@ -41,6 +41,15 @@
                     <fieldset class="form-control fieldset500">
                         <legend class="f8">Financial details</legend>
                         <app-financialdetailsform (storeFormData) = "storeFormData($event)"></app-financialdetailsform>
+                      </fieldset>
+                  </ng-template>
+                </li>
+                <li [ngbNavItem]="3">
+                  <a ngbNavLink>Loan Form</a>
+                  <ng-template ngbNavContent>
+                    <fieldset class="form-control fieldset500">
+                        <legend class="f8">Loan details</legend>
+                        <app-loan-application-form (storeFormData) = "storeFormData($event)"></app-loan-application-form>
                       </fieldset>
                   </ng-template>
                 </li>

@@ -1,12 +1,12 @@
 
 <form #appFinancialData="ngForm">
 <div class="row form-group">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <input type="text" class="form-control" placeholder="Enter PAN" name="panNumber" ngModel>
     </div>
     </div>
 <div class="row form-group">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <!-- <input type="text" class="form-control" placeholder="Enter Full Name"> -->
         <label class="ml-1">Is Salaried?</label>
         <div>
@@ -18,14 +18,14 @@
 </div>
 
 <div class="row form-group">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <input type="text" class="form-control" placeholder="Enter Monthly Salary" name="monthlySalary" ngModel>
     </div>
 </div>
     
 <div class="row form-group">
-    <div class="col-md-6">
-        <button class="btn btn-primary" (click)="submitApplication(appFinancialData)">Submit Application</button>
+    <div class="col-md-8">
+        <button class="btn btn-primary" (click)="submitApplication(appFinancialData)">Continue</button>
 
     </div>
 </div>

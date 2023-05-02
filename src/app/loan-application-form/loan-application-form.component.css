@@ -1,0 +1,13 @@
+#emiamount, #emitotalamount, #emitotalinterest {
+    padding: 0 15px;
+    text-align: center;
+}
+
+#emiamount, #emitotalinterest {
+    border-bottom: 1px dashed #ccc;
+    border-top: 0 none!important;
+}
+
+#emiamount p, #emitotalinterest p {
+    font-size: 24px!important;
+}

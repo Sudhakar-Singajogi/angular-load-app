@@ -1,41 +1,59 @@
-<form  #appPersonalData="ngForm">
+<form #appPersonalData="ngForm">
 
 
-<div class="row form-group">
-    <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Enter User Name" name="userName" ngModel >
+    <div class="row form-group">
+        <div class="col-md-8">
+            <input type="text" class="form-control" placeholder="Enter User Name" name="userName" ngModel>
+        </div>
+
     </div>
-
-    <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Enter Full Name" name="fullName" ngModel>
-    </div>
+    <div class="row form-group">
+        <div class="col-md-8">
+            <input type="text" class="form-control" placeholder="Enter Full Name" name="fullName" ngModel>
+        </div>
     </div>
     <div class="row form-group">
 
-        <div class="col-md-6">
+        <div class="col-md-8">
             <input type="text" class="form-control" placeholder="Date Of Birth" name="dob" ngModel>
         </div>
 
-        <div class="col-md-6">            
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6">
-                    <select name="maritalStatus" class="form-control" name="maritalStatus" ngModel>
-                    
-                        <option value="0">Marital Status</option>
+                <div class="col-md-8">
+                    <select name="maritalStatus" class="form-control" name="maritalStatus" ngModel="0">
+
+                        <option value="0" selected>Marital Status</option>
                         <option value="Single">Single</option>
                         <option value="Married">Married</option>
                         <option value="Divorced">Divorced</option>
-                    </select>  
+                    </select>
                 </div>
-                <div class="col-md-6">
-                    <select name="maritalStatus" class="form-control" name="gender" ngModel>
-                        <option value="0">Select gender</option>
+
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <select name="maritalStatus" class="form-control" name="gender" ngModel="0">
+                        <option value="0" selected>Select gender</option>
                         <option value="Male">Male</option>
-                        <option value="Female">Female</option> 
+                        <option value="Female">Female</option>
                     </select>
                 </div>
             </div>
         </div>
+
+
+    </div>
+    <div class="row form-group">
+
 
         <div class="col-md-12 text-right mt-2">
             <button class="btn btn-primary " (click)="sendPersonalData(appPersonalData)">Continue</button>
