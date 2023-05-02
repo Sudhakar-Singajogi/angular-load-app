@@ -16,4 +16,8 @@ url="http://localhost:3000";
  postData(data:any, resource:string) {
     return this.http.post(this.url+"/"+resource, data);
   }
+
+  applicantLogin(resource:string) {
+    return this.http.get(this.url+"/"+resource);
+  }
 }

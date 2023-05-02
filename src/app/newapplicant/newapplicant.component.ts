@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import {LoanappService} from "../services/loanapp.service";
+import { Router } from '@angular/router';
+import { EnumType } from 'typescript';
+
 
 interface Alert {
   type: string;
@@ -26,7 +29,14 @@ interface NewApplication {
     panNumber:string,
     isSalaried:string,
     monthlySalary:string
-  }
+  },
+  loanDetails:{
+    loanType:string,
+    duration:number,
+    roi:number,
+    emi:number
+  },
+  status:string
   
 }
 
@@ -48,7 +58,14 @@ const NEWAPPL: NewApplication = {
     panNumber:"",
     isSalaried:"",
     monthlySalary:""
-  }
+  },
+  loanDetails:{
+    loanType:"",
+    duration:0.00,
+    roi:0.000,
+    emi:0.000
+  },
+  status:"new"
 }
 
 
@@ -96,16 +113,14 @@ export class NewapplicantComponent implements OnInit {
   currentAddress:string = '';
   newappl:any = NEWAPPL;
   application:object = {};
-  
+  customers:any = [];
 
-  constructor(private loanAppService:LoanappService) { 
+  constructor(private loanAppService:LoanappService, private router:Router) { 
     model:''
     alerts: ALERTS
     this.currentAddress=""; 
     this.active=0;
     this.newappl = {};
-    
-    
   }
 
   setCurrentAddress(address:string) {
@@ -125,18 +140,41 @@ export class NewapplicantComponent implements OnInit {
     this.newappl[param] = formData.formdata;    
     
     if(param === 'financialDetails') {
-      this.loanAppService.postData(this.newappl, 'customers').subscribe(data => {this.application = data; this.showApplicatioId(this.application)} ); 
+      this.loanAppService.postData(this.newappl, 'customers').subscribe(data => {this.application = data; this.showApplicationId(this.application)} ); 
     }
 
   }
 
-  showApplicatioId(application:any) {
+  showApplicationId(application:any) {
     console.log(application.id);
     this.alerts = [{
       type:"success",
       message:"Application has been created and your applicatio Id is:" + application.id
     }];
     this.nav.select(0);
+
+  }
+
+  loginApplicant(applicationId:string) {
+
+    this.loanAppService.applicantLogin('customers').subscribe(
+      data => {
+        this.customers = data;
+        
+        if(this.customers.filter((item:any) => item.id==applicationId).length>0) {
+          console.log('login success:', applicationId);
+          this.alerts = [];
+          this.router.navigate(["applicant/" + applicationId])
+        } else {
+          this.alerts = [{
+            type:"danger",
+            message:"No application found with this id: " + applicationId
+          }];
+        }
+
+
+      }
+    )
 
   }
   
