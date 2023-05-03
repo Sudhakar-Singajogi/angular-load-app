@@ -1,5 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {employeeDetails, storeEmployee} from "../actions/employee.actions";
+import {EmployeeLoginService} from "../services/employeeLogin.service"
 
 interface employeeInter {
     "id": number,
@@ -15,7 +16,6 @@ const initState:employeeInter = {
     "password":""
 
 }
-
 const _employeeReducer = createReducer(
         initState, 
         on(employeeDetails, (state:any) => { return initState} ),
@@ -34,5 +34,8 @@ const _employeeReducer = createReducer(
     )
 
 export function employeeReducer(state:any, action:any) {
+    const employeeLoginService = new EmployeeLoginService();
+    employeeLoginService.empDetails.subscribe((data) => console.log('emp details are:', data));
     return _employeeReducer(state, action)
 }
+

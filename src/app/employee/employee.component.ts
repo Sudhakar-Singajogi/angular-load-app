@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import {Store} from "@ngrx/store";
 import {employeeDetails, storeEmployee} from "../actions/employee.actions"
+import { Subject, BehaviorSubject } from 'rxjs';
+import {EmployeeLoginService} from "../services/employeeLogin.service"
 
 interface NewApplication {
   personalDetails:{
@@ -76,7 +78,10 @@ export class EmployeeComponent implements OnInit {
   customers:any = NEWAPPL;
   
   alerts = ALERTS;
-  constructor(private loanAppService:LoanappService, private router:Router, public store:Store<any>) { 
+  public loginDetails = new BehaviorSubject({});
+
+
+  constructor(private loanAppService:LoanappService, private router:Router, public store:Store<any>, private employeeLoginService:EmployeeLoginService) { 
     this.employees = [];
     alerts: ALERTS
   }
@@ -117,6 +122,15 @@ export class EmployeeComponent implements OnInit {
                 }];  
             } else {
               this.alerts = [];
+
+              // this.setLoginDetails({
+              //   "employeeDetails":empDet
+              // });
+
+              this.employeeLoginService.setEmpDetails({
+                  "employeeDetails":empDet
+              })
+              
               this.router.navigate(["employee/details/" + empDet.id])
               this.addEmployeeStore(empDet);
               }
@@ -131,6 +145,14 @@ export class EmployeeComponent implements OnInit {
       )
     }      
   }
+
+  setLoginDetails(data:any) {
+    this.loginDetails.next(data);
+  }
+
+  // getLoginDetails() {
+  //   return this.loginDetails;
+  // }
 
   addEmployeeStore(refEmployee:employeeInter) {
   this.store.dispatch( storeEmployee({payload:refEmployee} ) )
