@@ -8,6 +8,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FinancialdetailsformComponent implements OnInit {
 
   @Output() storeFormData = new EventEmitter<any>()
+  @Output() selectTab = new EventEmitter<number>()
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +22,8 @@ export class FinancialdetailsformComponent implements OnInit {
         'formdata':finacialData.value
       }
     )
+    
+    this.selectTab.emit(3);
 
   }
 

@@ -1,6 +1,55 @@
+<!-- <div class="div-relative">
+    <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" class="alert-abs" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p> 
+</div> -->
+
 <div class="content flex-container flex-container-nonbg" role="main">
     
     <div class="flex-item flex-item-bg flex-item-4" style="flex-grow: 4">
         <h3 class="header-title">Welcome {{employeeDetails.name}}</h3>
-    </div>
+        <table class="applicant-table">
+            <thead class="tbl-header">
+                <th>SLNO</th>
+                <th>Applicant</th>
+                <th>ApplicationId</th>
+                <th>Status</th>
+                <th>View</th>
+            </thead>
+            <tbody class="tbl-body">
+                <tr *ngFor="let customer of customers;  let i = index">
+                    <td>{{i+1}}</td>
+                    <td>
+                        {{
+                            customer.personalDetails.userName ? (customer.personalDetails.userName | titlecase) : "Not exists"
+                        }}
+                    </td>
+                    <td>
+                        {{
+                           customer.financialDetails.panNumber ? (customer.financialDetails.panNumber  | uppercase | slice:0:4) + customer.id : "NOT EXISTS"
+                        }}
+
+                    </td>
+                    <td>
+                        {{
+                           customer.status | titlecase
+                        }}
+
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-success" (click)="getLoadDetails(customer.id)">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+    </div> 
+    
+      <div class="flex-item  flex-item-bg flex-item-8" style="flex-grow: 8">
+        <h3 class="mb-2">Verification form </h3>
+        
+          
+        </div>
+    
 </div>

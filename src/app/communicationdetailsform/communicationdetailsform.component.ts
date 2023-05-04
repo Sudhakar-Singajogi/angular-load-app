@@ -29,7 +29,7 @@ export class CommunicationdetailsformComponent implements OnInit {
     console.log('communication data is:', formData.value)
 
     this.storeFormData.emit({"key":'communicationDetails', 'formdata':formData.value})
-    this.selectTab.emit(2);
+    this.selectTab.emit(2); 
 
   }
 

@@ -40,7 +40,7 @@
                   <ng-template ngbNavContent>
                     <fieldset class="form-control fieldset500">
                         <legend class="f8">Financial details</legend>
-                        <app-financialdetailsform (storeFormData) = "storeFormData($event)"></app-financialdetailsform>
+                        <app-financialdetailsform (storeFormData) = "storeFormData($event)" (selectTab)="selectTab('3')"></app-financialdetailsform>
                       </fieldset>
                   </ng-template>
                 </li>
@@ -50,7 +50,7 @@
                     <fieldset class="form-control fieldset500">
                         <legend class="f8">Loan details</legend>
                         <app-loan-application-form (storeFormData) = "storeFormData($event)"></app-loan-application-form>
-                      </fieldset>
+                      </fieldset> 
                   </ng-template>
                 </li>
               </ul>

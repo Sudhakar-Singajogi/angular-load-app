@@ -1,0 +1,29 @@
+.feeder {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tbl-header th, .tbl-body td {
+    margin: 5px;
+    padding: 10px;
+
+}
+
+.tbl-header th{
+    font-size: 12pt;
+}
+.tbl-body td{
+    font-size: 12pt;
+}
+
+.applicant-table {
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.header-title {
+    margin: 0px;
+    padding: 10px;
+}

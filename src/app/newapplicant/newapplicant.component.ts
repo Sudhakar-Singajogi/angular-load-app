@@ -64,7 +64,7 @@ const NEWAPPL: NewApplication = {
     duration:0.00,
     roi:0.000,
     emi:0.000
-  },
+  }, 
   status:"new"
 }
 
@@ -137,9 +137,12 @@ export class NewapplicantComponent implements OnInit {
 
   storeFormData(formData:any) {    
     const param = formData.key
-    this.newappl[param] = formData.formdata;    
+    this.newappl[param] = formData.formdata;
     
-    if(param === 'financialDetails') {
+    if(param === 'loanDetails') {
+      this.newappl.status="new";
+      console.log('new applicant info is:', this.newappl);
+      
       this.loanAppService.postData(this.newappl, 'customers').subscribe(data => {this.application = data; this.showApplicationId(this.application)} ); 
     }
 

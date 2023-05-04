@@ -26,6 +26,12 @@ interface NewApplication {
     isSalaried:string,
     monthlySalary:string
   },
+  loanDetails:{
+    loanType:string,
+    duration:number,
+    roi:number,
+    emi:number
+  },
   status:string
   
 }
@@ -48,6 +54,12 @@ const NEWAPPL: NewApplication = {
     panNumber:"",
     isSalaried:"",
     monthlySalary:""
+  },
+  loanDetails:{
+    loanType:"",
+    duration:0.00,
+    roi:0.000,
+    emi:0.000
   },
   status:"new"
 }

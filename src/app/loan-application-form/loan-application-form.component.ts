@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -22,14 +22,12 @@ export class LoanApplicationFormComponent implements OnInit {
   emi:any=0;
   totalInterestPayable:any=0;
   totalpayment:any=0;
-
-  constructor() {
     
+  @Output() storeFormData = new EventEmitter<any>()
 
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   setLoanType(loanType:any) {
     if(loanType !== '0') {
@@ -77,6 +75,13 @@ export class LoanApplicationFormComponent implements OnInit {
     
     this.totalpayment = this.totalpayment.toLocaleString("en-IN");
     this.totalInterestPayable = this.totalInterestPayable.toLocaleString("en-IN")
+  }
+
+  submitLoanApplication(formData:any) {
+    console.log('Loan details data is:', formData.value)
+
+    this.storeFormData.emit({"key":'loanDetails', 'formdata':formData.value})  
+
   }
 
 }

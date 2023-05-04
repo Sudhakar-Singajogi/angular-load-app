@@ -32,14 +32,14 @@
 
             <div class="row form-group">
                 <div class="col-md-12">
-                    <input class="form-control" type="text" name="roi" placeholder="Interest Rate" disabled
+                    <input class="form-control" type="text" name="roi" placeholder="Interest Rate" readonly
                         ngModel="{{roi}}">
                 </div>
             </div>
 
             <div class="row form-group">
                 <div class="col-md-12">
-                    <input class="form-control" type="text" name="emi" placeholder="Monthly EMI" disabled
+                    <input class="form-control" type="text" name="emi" placeholder="Monthly EMI" readonly
                         ngModel="{{emi}}">
                 </div>
             </div>
@@ -65,7 +65,7 @@
 
     <div class="form-group">
         <div class="col-md-6">
-            <button class="btn btn-md btn-primary">Submit your loan</button>
+            <button class="btn btn-md btn-primary" (click)="submitLoanApplication(loanFormData)">Submit your loan</button>
         </div>
     </div>
 
